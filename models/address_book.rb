@@ -26,7 +26,7 @@ require_relative 'entry'
       entries.each do |entry|
         if name == entry.name && phone_number == entry.phone_number && email == entry.email
           entries.delete(entry)
-          break
+          bre
         end
       end
     end
