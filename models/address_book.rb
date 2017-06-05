@@ -8,6 +8,10 @@ require "csv"
       @entries = []
     end
 
+    def detonate
+      @entries = []
+    end
+
     def add_entry(name, phone_number, email)
 
       index = 0

@@ -14,6 +14,7 @@ class MenuController
     puts "3 - Create an entry"
     puts "4 - Search for an entry"
     puts "5 - Import entries from a CSV"
+    puts "12345679 - DETONATE ALL ENTRIES"
     puts "6 - Exit"
     print "Enter your selection:"
 
@@ -40,6 +41,9 @@ class MenuController
       when 5
         system "clear"
         read_csv
+        main_menu
+      when 123456789
+        detonate_submenu
         main_menu
       when 6
         puts "Good-bye!"
@@ -204,4 +208,29 @@ class MenuController
         search_submenu(entry)
       end
     end
+
+
+    def detonate_submenu
+      system "clear"
+      puts "y - yes I would like to remove all of my entries"
+      puts "n - that was a close one"
+
+      selection = gets.chomp
+
+      case selection
+        when "y"
+          system "clear"
+          @address_book.detonate
+          puts "All entries have been cleared"
+          main_menu
+        when "n"
+          system "clear"
+          main_menu
+        else
+          system "clear"
+          puts "#{selection} isn't an option"
+          detonate_submenu
+        end
+      end
+
 end
